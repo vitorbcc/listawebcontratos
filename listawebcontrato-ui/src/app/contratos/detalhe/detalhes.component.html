@@ -1,0 +1,92 @@
+<div class="card-detalhe">
+    <div class="card-title txt-left">
+        <h3 class="detalhe-title">Contrato  {{contrato.seqDocumentoContrato | labelValue:'objeto2Texto'}} - {{contrato.nomeFornecedor | labelValue:'objeto2Texto'}}  </h3> 
+    </div> 
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-sm">
+                <label class="label">Código do Contrato:</label>
+                {{contrato.seqDocumentoContrato | labelValue:'objeto2Texto'}}
+
+                <label class="label">CNPJ:</label>
+                {{contrato.numCNPJ | labelValue:'objeto2Texto'}}      
+
+                <label class="label">Código do Fornecedor:</label>
+                {{contrato.codigoFornecedor | labelValue:'objeto2Texto'}}
+                
+                <label class="label">Cód. Documento:</label>
+                {{contrato.codDocumentoContrato | labelValue:'objeto2Texto'}}
+                
+                <label class="label">Ano Documento:</label>
+                {{contrato.anoDocumentoContrato | labelValue:'objeto2Texto'}}
+                
+                <label class="label">Data Início Vigência:</label>
+                {{contrato.dataInicioVigencia | labelValue:'objeto2Texto'}}
+
+                <label class="label">Data termino Vig. Originária:</label>
+                    {{contrato.dataTermVigenciaContratoOrig | labelValue:'objeto2Texto'}}              
+                
+                <label class="label">Valor Inicial:</label>
+                {{contrato.valorInicialContrato | labelValue:'objeto2Texto'}}    
+                 
+                <label class="label">Data Assinatura:</label>
+                {{contrato.dataAssinaturaContrato | labelValue:'objeto2Texto'}}    
+                
+            </div>
+            <div class="col-sm">
+                <label class="label">Cód. Tipo do Obejto:</label>
+                    {{contrato.codTipoObjetoContrato | labelValue:'objeto2Texto'}}     
+                
+                <label class="label">Nome do Fornecedor:</label>
+                {{contrato.nomeFornecedor | labelValue:'objeto2Texto'}}                            
+                
+                <label class="label">Tipo Documento:</label>
+                {{contrato.tipoDocumentoContrato | labelValue:'objeto2Texto'}}
+                
+                <label class="label">Desc Objeto Documento:</label>
+                {{contrato.descObjetoDocumento | labelValue:'objeto2Texto'}}
+                
+                <label class="label">Data Termino Vigência:</label>
+                {{contrato.dataTerminoVigencia | labelValue:'objeto2Texto'}}            
+
+                <label class="label">Valor Inicial:</label>
+                {{contrato.valorInicialContrato | labelValue:'objeto2Texto'}}                           
+                
+                <label class="label">Desc Modalidade Pedido:</label>
+                {{contrato.descModalidadePedido | labelValue:'objeto2Texto'}}            
+                
+                     
+            </div>
+            <div class="col-sm">
+                <label class="label">Cód. Dotação Orçamentaria:</label>
+                {{contrato.codDotacaoOrcamentaria | labelValue:'objeto2Texto'}}
+
+                <label class="label">Data Prox. Apostila:</label>
+                {{contrato.dataProxApostila | labelValue:'objeto2Texto'}}
+
+                <label class="label">Num. Processo Licitatório:</label>
+                {{contrato.numProcessoLicitatorio | labelValue:'objeto2Texto'}}
+
+                <label class="label">Tipo Valor:</label>
+                {{contrato.tipoValor | labelValue:'objeto2Texto'}}            
+                
+                <label class="label">Moeda:</label>
+                {{contrato.simboloMoeda | labelValue:'objeto2Texto'}}
+
+                <label class="label">Data Publicação Contrato:</label>
+                {{contrato.dataPublicacaoContrato | labelValue:'objeto2Texto'}}
+                
+                <label class="label">Aditamentos:</label>
+                <button  class="btn-visualizar" [disabled]="aditamentos()" pTooltip="Visualizar"  (click)="VisualizarAditamento()" icon="pi pi-folder-open"  pButton type="button"  pTooltip="Visualizar" tooltipPosition="top"></button>
+                
+            </div>
+        </div>
+    </div>            
+</div>
+<p-dialog header="Aditamentos do Contrato" [(visible)]="displayModalAditamentos" [style]="{minWidth: '50vw'}" [modal]="true" [draggable]="true" [resizable]="true">
+    <p-fieldset  legend="Aditamentos">
+        <div >
+            <p> Exibição de dados em construção.</p>
+        </div>    
+    </p-fieldset>     
+</p-dialog> 

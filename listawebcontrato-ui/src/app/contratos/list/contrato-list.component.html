@@ -1,0 +1,59 @@
+<div class="card">
+    <div class="card-title txt-center">
+        <h2 class=""> Lista de Contratos</h2>
+    </div>
+    <div>
+        <div  *ngIf="contratos?.length; else emptyContratos">
+            <p-table class="table" #dt [value]="contratos" [rowHover]="true" [paginator]="true" [rows]="7" currentPageReportTemplate="{first} a {last} de {totalRecords}" 
+            [showCurrentPageReport]="true" >
+                <ng-template pTemplate="caption">
+                    <span class="medium">Lista de Contratos</span>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Nº Documento</th>
+                        <th>Fornecedor(Código-Nome)</th>    
+                        <th>Tipo de Documento</th>
+                        <th>Aditamentos</th>                        
+                        <th>Início da Vigência</th>                        
+                        <th>Fim da Vigência</th>
+                        <th></th>         
+                                       
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-contrato let-rowIndex="rowIndex">
+                    <tr class="ui-selectable-row">
+                        <td>{{contrato.seqDocumentoContrato | labelValue:'objeto2Texto'}}</td>
+                        <td>{{contrato.codigoFornecedor | labelValue:'objeto2Texto'}}-{{contrato.nomeFornecedor | labelValue:'objeto2Texto'}}</td>
+                        <td>{{contrato.tipoDocumentoContrato | labelValue:'objeto2Texto'}}</td>
+                        <td>{{checkAditamentos(contrato) }}</td>
+                        <td>{{contrato.dataInicioVigencia | labelValue:'objeto2Data'  }}</td>    
+                        <td>{{contrato.dataTerminoVigencia | labelValue:'objeto2Data' }}</td> 
+                        <td>
+                            <button class="btn-visualizar" toolTip="Visualizar" (click)="detalhe(contrato)"  icon="pi pi-search"  pButton type="button"  pTooltip="Visualizar" tooltipPosition="top"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="summary">
+                    <span class="negrito">{{contratos?.length}} registros encontrados</span>
+                </ng-template>
+            </p-table>
+        </div>
+        <ng-template #emptyContratos>
+            <div *ngIf="!controleBusca" class="mt-2">
+                <p>Nenhum Contrato Encotrado.</p>
+            </div>
+            <div *ngIf="controleBusca" class="mt-2">
+                <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-6" >
+                                <p-progressSpinner [strokeWidth]=2 fill="white" [style]="{width: '30px', height: '30px'}" ></p-progressSpinner>
+
+                                <span class="medium ml-3">Buscando...</span>
+                            </div> 
+                        </div>                            
+                </div>   
+            </div>
+        </ng-template>
+    </div>
+</div>
